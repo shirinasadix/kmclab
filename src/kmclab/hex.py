@@ -1,3 +1,4 @@
+from __future__ import annotations       
 import numpy as np
 from matplotlib.animation import FuncAnimation, PillowWriter
 import matplotlib.cm as cm
@@ -5,7 +6,6 @@ from numpy.polynomial.polynomial import Polynomial
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from scipy.stats import linregress
-from __future__ import annotations       
 
 
 class hex_kmc:
