@@ -9,6 +9,7 @@ description = "Hex and square lattice KMC classes."
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [{name = "Shirin Asadi"}]
+license = {text = "MIT"}
 dependencies = []
 
 [tool.setuptools]
