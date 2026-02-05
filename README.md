@@ -25,10 +25,18 @@ pip install -e .
 
 ## Usage
 
-```from kmclab import hex_kmc, square_kmc
+```
+from kmclab import hex_kmc
 
-hex_model = hex_kmc(...)
-sq_model = square_kmc(...)
+GoombKMC = hex_kmc(n_atoms = 5, n_defects = 5, n_adsorbates = 2, lattice_size = 10, n_steps = 50)
+
+GoombKMC.run()
+
+GoombKMC.anim1panels(filename = 'wtf1')
+
+GoombKMC.anim2panels(filename = 'ov10hy0')
+
+GoombKMC.msdplot(filename = 'MSD_Trajectory')
 ```
 
 ## Package Structure 
@@ -55,6 +63,7 @@ kmclab/
 ```
 XXX
 ```
+
 
 
 
