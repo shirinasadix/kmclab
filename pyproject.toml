@@ -10,7 +10,11 @@ readme = "README.md"
 requires-python = ">=3.9"
 authors = [{name = "Shirin Asadi"}]
 license = {text = "MIT"}
-dependencies = []
+dependencies = [
+    "numpy>=1.21",
+    "matplotlib>=3.5",
+    "scipy>=1.8",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
