@@ -33,6 +33,7 @@ sq_model = square_kmc(...)
 
 ## Package Structure 
 
+```
 kmclab/
 ├── src/
 │   └── kmclab/
@@ -42,10 +43,12 @@ kmclab/
 ├── tests/
 ├── pyproject.toml
 └── README.md
+```
 
 ## License
 
 ```
 XXX
 ```
+
 
