@@ -5,7 +5,17 @@ Currently includes simple hexagonal and square lattice KMC classes.
 
 ## Installation
 
-Clone the repository and install in editable mode:
+Install using pip
+```
+pip install kmclab
+```
+
+To upgrade to the latest version
+```
+pip install -U kmclab
+```
+
+Or you may clone the repository and install in editable mode:
 
 ```bash
 git clone https://github.com/shirinasadix/kmclab.git
@@ -38,3 +48,4 @@ kmclab/
 ```
 XXX
 ```
+
