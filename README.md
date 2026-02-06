@@ -5,12 +5,12 @@ Currently includes simple hexagonal and square lattice KMC classes.
 
 ## Installation
 
-Create a new conda environment:
+(Optional) Create a new conda environment:
 ```
 conda create -n test_env python=3.11
 conda activate test_env
 ```
-If you use the Spyder IDE you need to also:
+(Optional) If you use the Spyder IDE you need to also:
 ```
 conda install spyder-kernels
 ```
@@ -257,6 +257,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
