@@ -7,102 +7,135 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from scipy.stats import linregress
         
-
-
 class square_kmc:
     
-    def __init__(self, n_atoms, n_defects, n_adsorbates, lattice_size, n_steps, defect_type = 1, adsorbates_freq = 0, seed=1):
+    def __init__(self, n_atoms, n_defects, n_adsorbates, lattice_size,
+                 T= 300, 
+                 defect_type = 1,
+                 k_0=1,
+                 seed=1, 
+                 len_vertical = 0.297e-3, 
+                 len_horizontal = 0.660e-3, 
+                 adsorbates_freq = -1,
+                 energy_barrier_north = 0.26,
+                 energy_barrier_south = 0.26,
+                 energy_barrier_east = 0.91,
+                 energy_barrier_west = 0.91,       
+                 energy_barrier_northeast = 0.91,
+                 energy_barrier_northwest = 0.91,
+                 energy_barrier_southeast = 0.91,
+                 energy_barrier_southwest = 0.91,
+                 energy_barrier_trapping_defect_north = 0.99,
+                 energy_barrier_trapping_defect_south = 0.99, 
+                 energy_barrier_trapping_defect_northeast = 0.99,
+                 energy_barrier_trapping_defect_northwest = 0.99,
+                 energy_barrier_trapping_defect_southeast = 0.99,
+                 energy_barrier_trapping_defect_southwest = 0.99,
+                 energy_barrier_blocking_defect_north = 0.99,
+                 energy_barrier_blocking_defect_south = 0.99, 
+                 energy_barrier_blocking_defect_east = 0.99,
+                 energy_barrier_blocking_defect_west = 0.99,
+                 energy_barrier_blocking_defect_northeast = 0.99,
+                 energy_barrier_blocking_defect_northwest = 0.99,
+                 energy_barrier_blocking_defect_southeast = 0.99,
+                 energy_barrier_blocking_defect_southwest = 0.99,       
+                 energy_barrier_adsorbate_north = 0.72,
+                 energy_barrier_adsorbate_south = 0.72, 
+                 energy_barrier_adsorbate_east = 0.72,
+                 energy_barrier_adsorbate_west = 0.72,  
+                 energy_barrier_adsorbate_northeast = 0.72,        
+                 energy_barrier_adsorbate_northwest = 0.72,
+                 energy_barrier_adsorbate_southeast = 0.72,
+                 energy_barrier_adsorbate_southwest = 0.72):
         
         np.random.seed(seed)    
-        # what is you desired coverage= n_atom/lattice * lattice
         self.n_atoms = n_atoms  # Number of atoms
         self.n_defects = n_defects
         self.n_adsorbates= n_adsorbates
         self.lattice_size = lattice_size  # Lattice size
-        self.n_steps = n_steps # Number of steps
         self.defect_type = defect_type
-        self.adsorbates_freq = adsorbates_freq
-        T = 300  # Temperature in Kelvin
+        self.T = T  # Temperature in Kelvin
+        self.k_0 = k_0
+        self.len_vertical = len_horizontal 
+        self.len_horizontal = len_horizontal 
+        self.adsorbates_freq = adsorbates_freq   
         k_B = 8.617e-5  # Boltzmann constant in eV/K
-        k_0 = 1
         h = 4.1357e-15  #Planck Constant (eV.s)
-        self.len_vertical = 0.297e-3 # in micrometer
-        self.len_horizontal = 0.660e-3 # in micrometer
+        # in micrometer
     
         # DFT calculated vaues for diffusion on the stoichiometric surface in different directions (eV)
-        energy_barrier_north = 0.26
-        energy_barrier_south = 0.26
-        energy_barrier_east = 0.91
-        energy_barrier_west = 0.91        
-        energy_barrier_northeast = 0.91
-        energy_barrier_northwest = 0.91
-        energy_barrier_southeast = 0.91
-        energy_barrier_southwest = 0.91
+        self.energy_barrier_north = energy_barrier_north
+        self.energy_barrier_south = energy_barrier_south 
+        self.energy_barrier_east = energy_barrier_east
+        self.energy_barrier_west = energy_barrier_west       
+        self.energy_barrier_northeast = energy_barrier_northeast
+        self.energy_barrier_northwest = energy_barrier_northwest
+        self.energy_barrier_southeast = energy_barrier_southeast
+        self.energy_barrier_southwest =  energy_barrier_southwest
         
         # DFT calculated vaues for diffusion out of trapping deffect in different directions (eV)
-        energy_barrier_trapping_defect_north = 0.99
-        energy_barrier_trapping_defect_south = 0.99 
-        energy_barrier_trapping_defect_northeast = 0.99
-        energy_barrier_trapping_defect_northwest = 0.99
-        energy_barrier_trapping_defect_southeast = 0.99
-        energy_barrier_trapping_defect_southwest = 0.99
+        self.energy_barrier_trapping_defect_north = energy_barrier_trapping_defect_north 
+        self.energy_barrier_trapping_defect_south = energy_barrier_trapping_defect_south
+        self.energy_barrier_trapping_defect_northeast = energy_barrier_trapping_defect_northeast
+        self.energy_barrier_trapping_defect_northwest = energy_barrier_trapping_defect_northwest
+        self.energy_barrier_trapping_defect_southeast = energy_barrier_trapping_defect_southeast
+        self.energy_barrier_trapping_defect_southwest = energy_barrier_trapping_defect_southwest
         
         # DFT calculated vaues for diffusion out of trapping deffect in different directions (eV)
-        energy_barrier_blocking_defect_north = 0.99
-        energy_barrier_blocking_defect_south = 0.99 
-        energy_barrier_blocking_defect_east = 0.99
-        energy_barrier_blocking_defect_west = 0.99 
-        energy_barrier_blocking_defect_northeast = 0.99
-        energy_barrier_blocking_defect_northwest = 0.99
-        energy_barrier_blocking_defect_southeast = 0.99
-        energy_barrier_blocking_defect_southwest = 0.99       
+        self.energy_barrier_blocking_defect_north =  energy_barrier_blocking_defect_north
+        self.energy_barrier_blocking_defect_south =  energy_barrier_blocking_defect_south
+        self.energy_barrier_blocking_defect_east = energy_barrier_blocking_defect_east
+        self.energy_barrier_blocking_defect_west = energy_barrier_blocking_defect_west
+        self.energy_barrier_blocking_defect_northeast = energy_barrier_blocking_defect_northeast
+        self.energy_barrier_blocking_defect_northwest = energy_barrier_blocking_defect_northwest
+        self.energy_barrier_blocking_defect_southeast = energy_barrier_blocking_defect_southeast
+        self.energy_barrier_blocking_defect_southwest = energy_barrier_blocking_defect_southwest       
         
         
-        # DFT calculated vaues for diffusion over an adsorbate in different directions (eV)
-          
-        energy_barrier_adsorbate_north = 0.72
-        energy_barrier_adsorbate_south = 0.72 
-        energy_barrier_adsorbate_east = 0.72
-        energy_barrier_adsorbate_west = 0.72  
-        energy_barrier_adsorbate_northeast = 0.72        
-        energy_barrier_adsorbate_northwest = 0.72
-        energy_barrier_adsorbate_southeast = 0.72
-        energy_barrier_adsorbate_southwest = 0.72        
+        # DFT calculated vaues for diffusion over an adsorbate in different directions (eV)   
+        self.energy_barrier_adsorbate_north = energy_barrier_adsorbate_north
+        self.energy_barrier_adsorbate_south = energy_barrier_adsorbate_south 
+        self.energy_barrier_adsorbate_east = energy_barrier_adsorbate_east
+        self.energy_barrier_adsorbate_west = energy_barrier_adsorbate_west 
+        self.energy_barrier_adsorbate_northeast = energy_barrier_adsorbate_northeast        
+        self.energy_barrier_adsorbate_northwest = energy_barrier_adsorbate_northwest
+        self.energy_barrier_adsorbate_southeast = energy_barrier_adsorbate_southeast
+        self.energy_barrier_adsorbate_southwest = energy_barrier_adsorbate_southwest       
                       
         # Calculate rate constants
-        rate_north = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_north / (k_B * T))
-        rate_south = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_south / (k_B * T))
-        rate_east = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_east / (k_B * T))
-        rate_west = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_west / (k_B * T))        
-        rate_northeast = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_northeast / (k_B * T))
-        rate_northwest = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_northwest / (k_B * T))
-        rate_southeast = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_southeast / (k_B * T))
-        rate_southwest = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_southwest / (k_B * T))
+        rate_north = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_north / (k_B * self.T))
+        rate_south = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_south / (k_B * self.T))
+        rate_east = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_east / (k_B * self.T))
+        rate_west = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_west / (k_B * self.T))        
+        rate_northeast = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_northeast / (k_B * self.T))
+        rate_northwest = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_northwest / (k_B * self.T))
+        rate_southeast = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_southeast / (k_B * self.T))
+        rate_southwest = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_southwest / (k_B * self.T))
   
-        rate_trapping_defect_north = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_trapping_defect_north / (k_B * T))
-        rate_trapping_defect_south = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_trapping_defect_south / (k_B * T))
-        rate_trapping_defect_northeast = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_trapping_defect_northeast / (k_B * T))
-        rate_trapping_defect_northwest = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_trapping_defect_northwest / (k_B * T))
-        rate_trapping_defect_southeast = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_trapping_defect_southeast / (k_B * T))
-        rate_trapping_defect_southwest = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_trapping_defect_southwest / (k_B * T))
+        rate_trapping_defect_north = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_trapping_defect_north / (k_B * self.T))
+        rate_trapping_defect_south = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_trapping_defect_south / (k_B * self.T))
+        rate_trapping_defect_northeast = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_trapping_defect_northeast / (k_B * self.T))
+        rate_trapping_defect_northwest = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_trapping_defect_northwest / (k_B * self.T))
+        rate_trapping_defect_southeast = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_trapping_defect_southeast / (k_B * self.T))
+        rate_trapping_defect_southwest = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_trapping_defect_southwest / (k_B * self.T))
       
-        rate_blocking_defect_north = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_blocking_defect_north / (k_B * T))
-        rate_blocking_defect_south = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_blocking_defect_south / (k_B * T))
-        rate_blocking_defect_east = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_blocking_defect_east / (k_B * T))
-        rate_blocking_defect_west = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_blocking_defect_west / (k_B * T))  
-        rate_blocking_defect_northeast = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_blocking_defect_northeast / (k_B * T))
-        rate_blocking_defect_northwest = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_blocking_defect_northwest / (k_B * T))
-        rate_blocking_defect_southeast = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_blocking_defect_southeast / (k_B * T))
-        rate_blocking_defect_southwest = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_blocking_defect_southwest / (k_B * T))
+        rate_blocking_defect_north = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_blocking_defect_north / (k_B * self.T))
+        rate_blocking_defect_south = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_blocking_defect_south / (k_B * self.T))
+        rate_blocking_defect_east = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_blocking_defect_east / (k_B * self.T))
+        rate_blocking_defect_west = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_blocking_defect_west / (k_B * self.T))  
+        rate_blocking_defect_northeast = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_blocking_defect_northeast / (k_B * self.T))
+        rate_blocking_defect_northwest = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_blocking_defect_northwest / (k_B * self.T))
+        rate_blocking_defect_southeast = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_blocking_defect_southeast / (k_B * self.T))
+        rate_blocking_defect_southwest = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_blocking_defect_southwest / (k_B * self.T))
        
-        rate_adsorbate_north = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_adsorbate_north / (k_B * T))
-        rate_adsorbate_south = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_adsorbate_south / (k_B * T))   
-        rate_adsorbate_east = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_adsorbate_east / (k_B * T))
-        rate_adsorbate_west = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_adsorbate_west / (k_B * T))          
-        rate_adsorbate_northeast = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_adsorbate_northeast / (k_B * T))
-        rate_adsorbate_northwest = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_adsorbate_northwest / (k_B * T))
-        rate_adsorbate_southeast = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_adsorbate_southeast / (k_B * T))
-        rate_adsorbate_southwest = k_0 * ((k_B * T)/h) * np.exp(-energy_barrier_adsorbate_southwest / (k_B * T))
+        rate_adsorbate_north = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_adsorbate_north / (k_B * self.T))
+        rate_adsorbate_south = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_adsorbate_south / (k_B * self.T))   
+        rate_adsorbate_east = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_adsorbate_east / (k_B * self.T))
+        rate_adsorbate_west = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_adsorbate_west / (k_B * self.T))          
+        rate_adsorbate_northeast = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_adsorbate_northeast / (k_B * self.T))
+        rate_adsorbate_northwest = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_adsorbate_northwest / (k_B * self.T))
+        rate_adsorbate_southeast = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_adsorbate_southeast / (k_B * self.T))
+        rate_adsorbate_southwest = self.k_0 * ((k_B * self.T)/h) * np.exp(-self.energy_barrier_adsorbate_southwest / (k_B * self.T))
        
 
  
@@ -170,8 +203,8 @@ class square_kmc:
         
         self.generate_adsorbates()
         
-    def run(self):
-        
+    def run(self, n_steps):
+        self.n_steps = n_steps  
         self.time = np.zeros(self.n_steps + 1)
         self.msd = np.zeros(self.n_steps)
         self.md = np.zeros(self.n_steps)
@@ -472,8 +505,7 @@ class square_kmc:
                 self.msd[step] = squared_displacements.mean()
                 
             return self.time[:-1], self.msd
-            
-        
+                
     def square_lattice(self):
         def generate_square_lattice(rows, cols):
             square_lattice = []
@@ -483,8 +515,7 @@ class square_kmc:
             return square_lattice
     
         self.square_lattice = generate_square_lattice(self.lattice_size, self.lattice_size)   
-        
-        
+             
     def init_atoms(self):
         
         self.positions_atoms = []
@@ -614,8 +645,7 @@ class square_kmc:
         arr = self.positions_defects
         self.defects_pairs = [[tuple(arr[j]), tuple(arr[int(j + 0.5 * len(arr))])] for j in range(int(0.5 * len(arr)))]
     
-    
-    
+
     def generate_adsorbates(self):
         
         self.positions_adsorbates = []
@@ -640,15 +670,11 @@ class square_kmc:
 
         self.positions_adsorbates = np.array(self.positions_adsorbates)
     
-
-    
- 
-    
-    def anim1panels(self, filename):
+    def anim1panel(self, filename = "movie1panel", figsize = (6,6)):
 
     
         # ===================== Figure & Axes =====================
-        fig, ax_main = plt.subplots(figsize=(6, 6))
+        fig, ax_main = plt.subplots(figsize=figsize)
         ax_main.set_xlim(-1, self.lattice_size + 1)
         ax_main.set_ylim(-1, self.lattice_size + 1)
         ax_main.set_xticks(range(self.lattice_size))
@@ -782,14 +808,10 @@ class square_kmc:
         ani = FuncAnimation(fig, update_with_pause, frames=self.n_steps + pause_frames, interval=interval_ms)
         ani.save(f"{filename}.gif", writer=PillowWriter(fps=20))
         plt.show()
-
-
-
     
-        
-    def anim2panels(self, filename):
+    def anim2panel(self, filename = "movie2panel", figsize = (12, 6)):
 
-        fig, axes = plt.subplots(1, 2, figsize=(12, 6), gridspec_kw={'width_ratios': [2, 1]})
+        fig, axes = plt.subplots(1, 2, figsize=figsize, gridspec_kw={'width_ratios': [2, 1]})
         ax_main, ax_msd = axes[0], axes[1]
     
         # ---- Main lattice view ----
@@ -971,13 +993,8 @@ class square_kmc:
         ani = FuncAnimation(fig, update_with_pause, frames=self.n_steps + pause_frames, interval=interval_ms)
         ani.save(f"{filename}.gif", writer=PillowWriter(fps=20))
         plt.show()
-        
-    
-
-        
-        
-       
-    def msdplot(self, filename):
+           
+    def msdplot(self, filename = "msd"):
         
         time = self.time[:-1]
 
@@ -996,7 +1013,7 @@ class square_kmc:
 
         # Plot MSD vs. time with fit line
         plt.figure(figsize=(8, 6))
-        plt.plot(time, self.msd,  color="#89CFF0", label="Individual MSD Trajectory")
+        plt.plot(time, self.msd,  color= '#89CFF0', label="Individual MSD Trajectory")
         plt.plot(valid_time, fit_line, linestyle="--", color="blue", label="Linear Fit")
         #plt.axvline(x=time[transient_cutoff], color='r', linestyle='--', label="Transient cutoff")
         plt.xlabel("Time (s)")
@@ -1004,7 +1021,7 @@ class square_kmc:
         plt.legend()
         plt.title(f"Mean Squared Displacement vs Time - {self.n_steps} steps")
         plt.text(0.05 * max(time), 0.8 * max(self.msd),  # Adjust placement (x, y) as needed
-                 f" Diffusion Coefficient = {diffusion_coefficient_corrected:.4f} µm²/s", 
+                 f" Diffusion Coefficient = {diffusion_coefficient_corrected:.1e} µm²/s", 
                  fontsize=12, color='blue', bbox=dict(facecolor="white", alpha=0.5))
         plt.minorticks_on()
         plt.grid(True, which='major', linestyle='-', linewidth=0.6)
@@ -1012,15 +1029,12 @@ class square_kmc:
         plt.savefig(f'{filename}.png', dpi = 600)
         plt.show()  
         
+    def msd_histogram(self, filename = "average_msd", n_seeds = 25):
         
-
-    def msd_histogram(self, n_seeds, msd_folder = "random_seeds/msd", 
-                      time_folder = "random_seeds/time", 
-                      save_folder = "random_seeds/average_msd.png",
-                      msd_trajs_color = "pink",
-                      msd_average_color = "#C71585"):
-        
-        
+        msd_folder = "random_seeds/msd"
+        time_folder = "random_seeds/time"
+        save_folder = f"random_seeds/{filename}.png"
+                          
         msd_list = []
         time_list = []
 
@@ -1040,7 +1054,7 @@ class square_kmc:
         time_avg = np.mean(time_array, axis=0)
 
         # Fit a linear function: MSD = a * Time + b
-       # slope, intercept = np.polyfit(time_avg, msd_avg, 1)
+        # slope, intercept = np.polyfit(time_avg, msd_avg, 1)
         slope, intercept, r_value, p_value, slope_std_err = linregress(time_avg, msd_avg)
         fitted_line = slope * time_avg + intercept  # Compute the fitted line
 
@@ -1051,11 +1065,11 @@ class square_kmc:
         # Plot all MSD curves in light pink
         plt.figure(figsize=(8, 6))
         for i in range(n_seeds):
-            plt.plot(time_array[i], msd_array[i], color=msd_trajs_color, alpha=0.5, linewidth=1)
+            plt.plot(time_array[i], msd_array[i], color="pink", alpha=0.5, linewidth=1)
 
         # Plot average MSD with error bars at 20 selected points in dark pink
-        plt.plot(time_avg, msd_avg, color=msd_average_color, linewidth=2, label="Average MSD")
-        plt.errorbar(time_avg[indices], msd_avg[indices], yerr=msd_std[indices], fmt='o', color=msd_average_color, capsize=3)
+        plt.plot(time_avg, msd_avg, color="#C71585", linewidth=2, label="Average MSD")
+        plt.errorbar(time_avg[indices], msd_avg[indices], yerr=msd_std[indices], fmt='o', color="#C71585", capsize=3)
 
         # Plot fitted line
         #plt.plot(time_avg, fitted_line, linestyle="--", color="blue", linewidth=2, label=f"Linear Fit: Slope = {slope:.4f} ± {slope_std_err:.2f} (um²/s)")
@@ -1064,10 +1078,10 @@ class square_kmc:
         # Labels and legend
         plt.xlabel("Time(s)")
         plt.ylabel("MSD (µm²)")
-        plt.title("T=300K - Lattice Size =10*10 - OH Coverage=0.5ML - OH Frequency=OFF")
+        plt.title("Average Mean Square Displacement vs Time")
 
         # Display slope inside the plot
-        plt.text(0.05 * max(time_avg), 0.8 * max(msd_avg), f"Diffusion Coefficient = {slope/4:.6f} ± {slope_std_err/4:.1e} (µm²/s)", fontsize=12, color="blue", bbox=dict(facecolor="white", alpha=0.5))
+        plt.text(0.05 * max(time_avg), 0.8 * max(msd_avg), f"Diffusion Coefficient = {slope/4:.1e} ± {slope_std_err/4:.1e} (µm²/s)", fontsize=12, color="blue", bbox=dict(facecolor="white", alpha=0.5))
         plt.legend()
         plt.minorticks_on()
         plt.grid(True, which='major', linestyle='-', linewidth=0.6)
@@ -1075,4 +1089,3 @@ class square_kmc:
         plt.savefig(save_folder, dpi = 600)
         plt.show()
     
-   
