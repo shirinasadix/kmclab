@@ -1,4 +1,4 @@
-from hexa import kmc
+from hexa import hexa_kmc
 
 hexa_params = {
     # System composition
@@ -59,7 +59,7 @@ hexa_params = {
 
 
 
-KMC = kmc(**hexa_params)
+KMC = hexa_kmc(**hexa_params)
 
 KMC.run(n_steps = 30)          # Total KMC steps (must be > 10)  
 
