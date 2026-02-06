@@ -1,4 +1,4 @@
-from square import kmc
+from square import square_kmc
 
 square_params = {
     
@@ -60,7 +60,7 @@ square_params = {
     'energy_barrier_adsorbate_southeast' : 0.72,
     'energy_barrier_adsorbate_southwest' : 0.72}
 
-KMC = kmc(**square_params)
+KMC = square_kmc(**square_params)
 
 KMC.run(n_steps = 30)  # Total KMC steps (must be > 10)
         
