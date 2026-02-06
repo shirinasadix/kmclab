@@ -1,4 +1,4 @@
-from hexa import kmc
+from hexa import hexa_kmc
 import numpy as np 
 from pathlib import Path
 import shutil
@@ -76,7 +76,7 @@ for i in range(n_seeds):
     hexa_params['seed'] = i,
     print(f'current random_seed = {i}')
     
-    KMC = kmc(**hexa_params)
+    KMC = hexa_kmc(**hexa_params)
     
     time, msd = KMC.run(n_steps = 2500)
     
