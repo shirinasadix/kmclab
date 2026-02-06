@@ -25,19 +25,7 @@ pip install -e .
 
 ## Usage
 
-```
-from kmclab import hex_kmc
 
-GoombKMC = hex_kmc(n_atoms = 5, n_defects = 5, n_adsorbates = 2, lattice_size = 10, n_steps = 50)
-
-GoombKMC.run()
-
-GoombKMC.anim1panels(filename = 'wtf1')
-
-GoombKMC.anim2panels(filename = 'ov10hy0')
-
-GoombKMC.msdplot(filename = 'MSD_Trajectory')
-```
 
 ## Package Structure 
 
@@ -53,6 +41,22 @@ kmclab/
 └── README.md
 ```
 ## Examples
+
+### Minimal Example 
+
+```
+from kmclab import hexa_kmc
+
+KMC = hexa_kmc(n_atoms = 5, n_defects = 4, n_adsorbates = 4, lattice_size = 10)
+
+KMC.run(n_steps = 30)
+
+KMC.anim1panel()
+
+KMC.anim2panel()
+
+KMC.msdplot()
+```
 
 ### Square Lattice - Single Run 
 
@@ -243,6 +247,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
