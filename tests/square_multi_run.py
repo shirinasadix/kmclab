@@ -1,4 +1,4 @@
-from square import kmc
+from square import square_kmc
 import numpy as np 
 from pathlib import Path
 import shutil
@@ -79,7 +79,7 @@ for i in range(n_seeds):
     square_params['seed'] = i,
     print(f'current random_seed = {i}')
     
-    KMC = kmc(**square_params)
+    KMC = square_kmc(**square_params)
     
     time, msd = KMC.run(n_steps = 2500)
     
