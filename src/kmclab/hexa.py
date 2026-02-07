@@ -13,8 +13,8 @@ class hexa_kmc:
     def __init__(self, n_atoms, n_defects, n_adsorbates, lattice_size, 
                  T= 300, 
                  defect_type = 1,
-                 k_0=1,
-                 seed=1, 
+                 k_0 = 1,
+                 seed = 1, 
                  len_vertical = 0.38e-3,
                  len_horizontal = 0.51e-3,
                  adsorbates_freq = -1,
@@ -43,7 +43,7 @@ class hexa_kmc:
                  energy_barrier_adsorbate_northeast = 0.72,        
                  energy_barrier_adsorbate_northwest = 0.72,
                  energy_barrier_adsorbate_southeast = 0.72,
-                 energy_barrier_adsorbate_southwest = 0.72,                   
+                 energy_barrier_adsorbate_southwest = 0.72                   
                  ):
         
         
