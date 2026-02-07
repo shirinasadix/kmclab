@@ -12,8 +12,8 @@ class square_kmc:
     def __init__(self, n_atoms, n_defects, n_adsorbates, lattice_size,
                  T= 300, 
                  defect_type = 1,
-                 k_0=1,
-                 seed=1, 
+                 k_0 = 1,
+                 seed = 1, 
                  len_vertical = 0.297e-3, 
                  len_horizontal = 0.660e-3, 
                  adsorbates_freq = -1,
@@ -56,12 +56,12 @@ class square_kmc:
         self.defect_type = defect_type
         self.T = T  # Temperature in Kelvin
         self.k_0 = k_0
-        self.len_vertical = len_horizontal 
+        self.len_vertical = len_vertical 
         self.len_horizontal = len_horizontal 
         self.adsorbates_freq = adsorbates_freq   
         k_B = 8.617e-5  # Boltzmann constant in eV/K
         h = 4.1357e-15  #Planck Constant (eV.s)
-        # in micrometer
+        
     
         # DFT calculated vaues for diffusion on the stoichiometric surface in different directions (eV)
         self.energy_barrier_north = energy_barrier_north
