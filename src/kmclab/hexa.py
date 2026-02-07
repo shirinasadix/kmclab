@@ -55,7 +55,7 @@ class hexa_kmc:
         self.T = T  # Temperature in Kelvin
         self.defect_type = defect_type   # blocking = 2 , trapping = 1
         self.k_0 = k_0
-        self.len_vertical = len_horizontal 
+        self.len_vertical = len_vertical
         self.len_horizontal = len_horizontal 
         self.adsorbates_freq = adsorbates_freq    
         k_B = 8.617e-5  # Boltzmann constant in eV/K
