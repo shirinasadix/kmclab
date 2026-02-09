@@ -1,11 +1,11 @@
 # kmclab
 kmclab is a lightweight Python package providing lattice-based kinetic Monte Carlo (KMC) tools for simulating the surface diffusion of supported metal atoms and small clusters. The framework enables direct extraction of diffusion coefficients from first-principles–derived rate catalogs and includes built-in capabilities for trajectory visualization, mean-squared displacement analysis, and statistical averaging over multiple stochastic realizations.
-# Lattice classes
+## Lattice classes
 kmclab currently provides two primary classes that differ in lattice geometry and site connectivity:
-hexa_kmc — diffusion on a hexagonal lattice
-square_kmc — diffusion on a square lattice
+- hexa_kmc : diffusion on a hexagonal lattice
+- square_kmc : diffusion on a square lattice
 Both classes share an identical workflow and analysis interface, allowing simulations and post-processing routines to be applied consistently across different lattice types.
-# Core functionality
+## Core functionality
 Each lattice class supports the following diffusion-focused capabilities:
 **KMC time evolution**
 - Propagates adatom diffusion using direction-dependent hopping rates
@@ -272,6 +272,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
