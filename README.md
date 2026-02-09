@@ -18,12 +18,13 @@ Each lattice class supports the following diffusion-focused capabilities:
 
 Generate animation GIFs of KMC trajectories:
 - single-panel: lattice evolution
-- two-panel: lattice evolution with MSD vs time
+- two-panel: lattice and  MSD vs time evolution
 
 **Mean-squared displacement (MSD) analysis**
-- Compute MSD as a function of time for individual trajectories
+- Compute MSD as a function of time for individual surface realization
 - Perform ensemble averaging over multiple stochastic realizations
 - Automatically extract diffusion coefficients from the linear (diffusive) MSD regime
+  
 ## Installation
 
 (Optional) Create a new conda environment:
@@ -278,6 +279,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
