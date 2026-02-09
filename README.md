@@ -20,7 +20,7 @@ Generate animation GIFs of KMC trajectories:
 - single-panel: lattice evolution
 - two-panel: lattice and  MSD vs time evolution
 
-**Mean-squared displacement (MSD) analysis**
+**Mean-squared displacement (MSD) analysis and diffusion coefficient calculation**
 - Compute MSD as a function of time for individual surface realization
 - Perform ensemble averaging over multiple stochastic realizations
 - Automatically extract diffusion coefficients from the linear (diffusive) MSD regime
@@ -279,6 +279,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
