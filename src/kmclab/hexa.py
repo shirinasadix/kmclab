@@ -146,8 +146,8 @@ class hexa_kmc:
             "north": rate_north,
             "south": rate_south,
             "northeast": rate_northeast,
-            "southeast": rate_northwest,
-            "northwest": rate_southeast,
+            "northwest": rate_northwest,
+            "southeast": rate_southeast,
             "southwest": rate_southwest
         }
   
@@ -175,8 +175,8 @@ class hexa_kmc:
             "north": rate_adsorbate_north,
             "south": rate_adsorbate_south,
             "northeast":  rate_adsorbate_northeast,
-            "southeast":  rate_adsorbate_northwest,
-            "northwest":  rate_adsorbate_southeast,
+            "northwest":  rate_adsorbate_northwest,
+            "southeast":  rate_adsorbate_southeast,
             "southwest":  rate_adsorbate_southwest
         }
 
