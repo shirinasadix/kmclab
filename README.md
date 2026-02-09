@@ -187,11 +187,11 @@ KMC.msdplot()
 ##### Demo 
 
 
-## Hexagonal Lattice - Multi Run (Average Mean squared displacement vs time)
+### Hexagonal Lattice - Multi Run (Average Mean squared displacement vs time)
 
 The example below shows how to run multiple independent KMC trajectories on a hexagonal lattice, average the MSD, and extract the diffusion coefficient.
 
-### Step 1: Import and setup output directories
+#### Step 1: Import and setup output directories
 
 ```
 from kmclab import hexa_kmc
@@ -208,7 +208,7 @@ if rs_p.exists():
 (rs_p / "msd").mkdir(parents=True)
 
  ```
-### Step 2: Define simulation parameters
+#### Step 2: Define simulation parameters
 
 ```
 n_seeds = 25                     # Number of trials
@@ -270,7 +270,7 @@ hexa_params = {
 }
 
 ```
-### Step 3: Run multiple KMC trajectories
+#### Step 3: Run multiple KMC trajectories
 ```
 for i in range(n_seeds):
 
@@ -289,7 +289,7 @@ for i in range(n_seeds):
 KMC.msd_histogram(n_seeds = n_seeds)
 ```
 
-## Demo 
+##### Demo 
 
 ![demo](wtf1.gif)
 
@@ -381,6 +381,7 @@ KMC.msdplot()
 ```
 XXX
 ```
+
 
 
 
