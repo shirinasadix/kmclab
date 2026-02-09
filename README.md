@@ -89,15 +89,15 @@ KMC.anim2panel()
 
 KMC.msdplot()
 ```
-## Hexagonal Lattice - Single Run 
+### Hexagonal Lattice - Single Run 
 
 Here is the step by step guide: 
-### Step 1: Import the KMC class 
+#### Step 1: Import the KMC class 
 
 ```
 from kmclab import hexa_kmc
 ```
-### Step 2: Define simulation parameters
+#### Step 2: Define simulation parameters
 ```
 hexa_params = {
     # System composition
@@ -155,40 +155,37 @@ hexa_params = {
     'energy_barrier_adsorbate_southwest': 0.72
 }
 ```
-### Step 3: Run the KMC simulation
+#### Step 3: Run the KMC simulation
 ```
-KMC = square_kmc(**square_params)
+KMC = hexa_kmc(**hexa_params)
 KMC.run(n_steps = 30)  # Total KMC steps (must be > 10) 
 ```
-### Step 4: Visualize the results
+#### Step 4: Visualize the results
 
-- Lattice Evolution Animation
+**Lattice Evolution Animation**
 
 ```
 KMC.anim1panel()
 ```
-### Demo 
-
-![demo](wtf1.gif)
+##### Demo 
 
 
-- Lattice Evolution + MSD vs Time Evolution Animation
+
+**Lattice Evolution + MSD vs Time Evolution Animation**
   
 ```
 KMC.anim2panel()
 ```
-### Demo 
+##### Demo 
 
-![demo](wtf1.gif)
 
-- Single-Trajectory MSD vs Time
+**Single-Trajectory MSD vs Time**
 
 ```
 KMC.msdplot()
 ```
-### Demo 
+##### Demo 
 
-![demo](wtf1.gif)
 
 ## Hexagonal Lattice - Multi Run (Average Mean squared displacement vs time)
 
@@ -384,6 +381,7 @@ KMC.msdplot()
 ```
 XXX
 ```
+
 
 
 
