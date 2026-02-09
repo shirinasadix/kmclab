@@ -12,14 +12,14 @@ if rs_p.exists():
 (rs_p / "msd").mkdir(parents=True)
 
 
-n_seeds = 5 # Number of trials
+n_seeds = 25 # Number of trials
 
 square_params = {
     
     # System composition
-    'n_atoms': 5,          # Number of mobile adatoms
-    'n_defects': 5,       # Number of surface defects
-    'n_adsorbates': 5,     # Number of surface adsorbates
+    'n_atoms': 15,          # Number of mobile adatoms
+    'n_defects': 0,       # Number of surface defects
+    'n_adsorbates': 0,     # Number of surface adsorbates
     
     # Lattice and simulation control
     'lattice_size': 10,    # Linear size of the lattice
@@ -27,10 +27,10 @@ square_params = {
     
     'len_vertical' : 0.297e-3,   # Vertical lattice hop distances (µm)
     'len_horizontal' : 0.660e-3,  # Horizontal lattice hop distances (µm)
-    'adsorbates_freq' : 3, # Adsorbate redistribution frequency (required only if n_adsorbates > 0) (-1 disables) 
+    'adsorbates_freq' : -1, # Adsorbate redistribution frequency (required only if n_adsorbates > 0) (-1 disables) 
     
     # Defect behavior
-    'defect_type': 1,      # 1 = trapping defects, 2 = blocking defects (required only if n_defects > 0 )
+    'defect_type': 2,      # 1 = trapping defects, 2 = blocking defects (required only if n_defects > 0 )
 
     # Kinetic prefactor
     'k_0': 1,              
@@ -76,7 +76,7 @@ square_params = {
 
 for i in range(n_seeds):
 
-    square_params['seed'] = i,
+    square_params['seed'] = i
     print(f'current random_seed = {i}')
     
     KMC = square_kmc(**square_params)
