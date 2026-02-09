@@ -4,6 +4,7 @@ kmclab is a lightweight Python package providing lattice-based kinetic Monte Car
 kmclab currently provides two primary classes that differ in lattice geometry and site connectivity:
 - hexa_kmc : diffusion on a hexagonal lattice
 - square_kmc : diffusion on a square lattice
+  
 Both classes share an identical workflow and analysis interface, allowing simulations and post-processing routines to be applied consistently across different lattice types.
 ## Core functionality
 Each lattice class supports the following diffusion-focused capabilities:
@@ -272,6 +273,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
