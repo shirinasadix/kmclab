@@ -12,7 +12,7 @@ Each lattice class supports the following diffusion-focused capabilities:
 
 **KMC time evolution**
 - Propagates adatom diffusion using direction-dependent hopping rates
-- Supports stoichiometric sites, trapping defects, blocking defects, and adsorbate-mediated diffusion
+- Supports stoichiometric sites, defective sites (including but not limited to oxygen vacancies and dopants acting as either trapping or blocking defects), and adsorbate-modified sites 
 
 **Trajectory visualization**
 
@@ -278,6 +278,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
