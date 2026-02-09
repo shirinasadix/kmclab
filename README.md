@@ -74,19 +74,17 @@ kmclab/
 ```
 ## Examples
 
-### Minimal Example 
+### Minimal Example (Ag monomer diffusion on anatase-TiO2(101) at room temperature)
 
 ```
 from kmclab import hexa_kmc
 
 KMC = hexa_kmc(n_atoms = 5, n_defects = 4, n_adsorbates = 4, lattice_size = 10)
 
-KMC.run(n_steps = 30)
+KMC.run(n_steps = 100)
 
-KMC.anim1panel()
-
-KMC.anim2panel()
-
+KMC.anim1panel()    # Keep `n_steps` for this function relatively small (≈1000), as larger values can significantly increase runtime.
+KMC.anim2panel()    # Keep `n_steps` for this function relatively small (≈1000), as larger values can significantly increase runtime.
 KMC.msdplot()
 ```
 ### Single Run (Visualization)
@@ -96,7 +94,7 @@ Here is the step by step guide:
 
 ```
 from kmclab import hexa_kmc         # hexagonal lattice
-# from kmclab import square_kmc     # square lattice
+#from kmclab import square_kmc      # square lattice
 
 ```
 #### Step 2: Define simulation parameters
@@ -227,17 +225,17 @@ square_params = {
 #### Step 3: Run the KMC simulation
 ```
 KMC = hexa_kmc(**hexa_params)                                   # hexagonal lattice
-KMC.run(n_steps = 30)  # Total KMC steps (must be > 10)         # hexagonal lattice
+KMC.run(n_steps = 100)  # Total KMC steps (must be > 10)        # hexagonal lattice
 
 #KMC = square_kmc(**square_params)                              # square lattice
-#KMC.run(n_steps = 30)  # Total KMC steps (must be > 10)        # square lattice
+#KMC.run(n_steps = 100)  # Total KMC steps (must be > 10)       # square lattice
 ```
 #### Step 4: Visualize the results
 
 **Lattice Evolution Animation**
 
 ```
-KMC.anim1panel()
+KMC.anim1panel()    # Keep `n_steps` for this function relatively small (≈1000), as larger values can significantly increase runtime.
 ```
 ##### Demo 
 
@@ -246,7 +244,7 @@ KMC.anim1panel()
 **Lattice Evolution + MSD vs Time Evolution Animation**
   
 ```
-KMC.anim2panel()
+KMC.anim2panel()   # Keep `n_steps` relatively small (≈1000), as larger values can significantly increase runtime.
 ```
 ##### Demo 
 
@@ -261,7 +259,7 @@ KMC.msdplot()
 
 ### Multi Run (Diffusion Coefficient Calculation)
 
-The example below shows how to run multiple independent KMC trajectories on a hexagonal lattice, average the MSD, and extract the diffusion coefficient.
+The example below shows how to run multiple independent KMC trajectories on a lattice, average the MSD, and extract the diffusion coefficient.
 
 #### Step 1: Import and setup output directories
 
@@ -441,6 +439,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
