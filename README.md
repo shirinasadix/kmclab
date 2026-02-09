@@ -89,17 +89,19 @@ KMC.anim2panel()
 
 KMC.msdplot()
 ```
-### Single Run 
+### Single Run (Visualization)
 
 Here is the step by step guide: 
 #### Step 1: Import the KMC class 
 
 ```
-from kmclab import hexa_kmc
+from kmclab import hexa_kmc         # hexagonal lattice
+# from kmclab import square_kmc     # square lattice
+
 ```
 #### Step 2: Define simulation parameters
 
-The parameters set for hexagonal lattice
+The parameters set for hexagonal lattice:
 
 ```
 hexa_params = {
@@ -158,7 +160,7 @@ hexa_params = {
     'energy_barrier_adsorbate_southwest': 0.72
 }
 ```
-The parameters set for square lattice
+The parameters set for square lattice:
 
 ```
 square_params = {
@@ -224,8 +226,11 @@ square_params = {
 
 #### Step 3: Run the KMC simulation
 ```
-KMC = hexa_kmc(**hexa_params)
-KMC.run(n_steps = 30)  # Total KMC steps (must be > 10) 
+KMC = hexa_kmc(**hexa_params)                                   # hexagonal lattice
+KMC.run(n_steps = 30)  # Total KMC steps (must be > 10)         # hexagonal lattice
+
+#KMC = square_kmc(**square_params)                              # square lattice
+#KMC.run(n_steps = 30)  # Total KMC steps (must be > 10)        # square lattice
 ```
 #### Step 4: Visualize the results
 
@@ -254,14 +259,15 @@ KMC.msdplot()
 ##### Demo 
 
 
-### Multi Run (Average Mean squared displacement vs time)
+### Multi Run (Diffusion Coefficient Calculation)
 
 The example below shows how to run multiple independent KMC trajectories on a hexagonal lattice, average the MSD, and extract the diffusion coefficient.
 
 #### Step 1: Import and setup output directories
 
 ```
-from kmclab import hexa_kmc
+from kmclab import hexa_kmc         # hexagonal lattice
+#from kmclab import square_kmc      # square lattice
 import numpy as np
 from pathlib import Path
 import shutil
@@ -277,7 +283,7 @@ if rs_p.exists():
  ```
 #### Step 2: Define simulation parameters
 
-The parameters set for hexagonal lattice
+The parameters set for hexagonal lattice:
 
 ```
 n_seeds = 25                     # Number of trials
@@ -339,7 +345,7 @@ hexa_params = {
 }
 
 ```
-The parameters set for square lattice
+The parameters set for square lattice:
 
 ```
 square_params = {
@@ -406,10 +412,13 @@ square_params = {
 ```
 for i in range(n_seeds):
 
-    hexa_params['seed'] = i
-    print(f'current random_seed = {i}')
-    
-    KMC = hexa_kmc(**hexa_params)
+    hexa_params['seed'] = i                  # hexagonal lattice
+    print(f'current random_seed = {i}')      # hexagonal lattice
+    KMC = hexa_kmc(**hexa_params)            # hexagonal lattice
+
+    #square_params['seed'] = i               # square lattice
+    #print(f'current random_seed = {i}')     # square lattice
+    #KMC = square_kmc(**square_params)       # square lattice
     
     time, msd = KMC.run(n_steps = 2500)
     
@@ -425,36 +434,14 @@ KMC.msd_histogram(n_seeds = n_seeds)
 
 ![demo](wtf1.gif)
 
-### Square Lattice - Single Run 
 
-Here is the step by step guide: 
-
-```
-from square import square_kmc
-```
-Now to define system parameters:
-```
-
-```
-Now to run the actual KMC: 
-```
-KMC = square_kmc(**square_params)
-
-KMC.run(n_steps = 30)  # Total KMC steps (must be > 10)
-```
-Now to see the results you have multiple options:
-```
-KMC.anim1panel()
-
-KMC.anim2panel()
-
-KMC.msdplot()
 ```
 ## License
 
 ```
 XXX
 ```
+
 
 
 
