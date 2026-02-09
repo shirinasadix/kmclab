@@ -436,9 +436,6 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 ## License
 
-```
-XXX
-```
 
 
 
