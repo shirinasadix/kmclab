@@ -7,11 +7,13 @@ kmclab currently provides two primary classes that differ in lattice geometry an
   
 Both classes share an identical workflow and analysis interface, allowing simulations and post-processing routines to be applied consistently across different lattice types.
 ## Core functionality
+
 Each lattice class supports the following diffusion-focused capabilities:
 **KMC time evolution**
 - Propagates adatom diffusion using direction-dependent hopping rates
 - Supports stoichiometric sites, trapping defects, blocking defects, and adsorbate-mediated diffusion
 **Trajectory visualization**
+  
 Generate animation GIFs of KMC trajectories:
 - single-panel: lattice evolution
 - two-panel: lattice evolution with MSD vs time
@@ -273,6 +275,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
