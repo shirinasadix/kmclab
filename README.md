@@ -9,14 +9,17 @@ Both classes share an identical workflow and analysis interface, allowing simula
 ## Core functionality
 
 Each lattice class supports the following diffusion-focused capabilities:
+
 **KMC time evolution**
 - Propagates adatom diffusion using direction-dependent hopping rates
 - Supports stoichiometric sites, trapping defects, blocking defects, and adsorbate-mediated diffusion
+- 
 **Trajectory visualization**
-  
+
 Generate animation GIFs of KMC trajectories:
 - single-panel: lattice evolution
 - two-panel: lattice evolution with MSD vs time
+- 
 **Mean-squared displacement (MSD) analysis**
 - Compute MSD as a function of time for individual trajectories
 - Perform ensemble averaging over multiple stochastic realizations
@@ -275,6 +278,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
