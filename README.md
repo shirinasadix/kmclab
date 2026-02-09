@@ -186,7 +186,7 @@ hexa_params = {
     
     'len_vertical' : 0.38e-3,   # Vertical lattice hop distances (µm)
     'len_horizontal' : 0.51e-3,  # Horizontal lattice hop distances (µm)
-    'adsorbates_freq' : 3, # Adsorbate redistribution frequency (required only if n_adsorbates > 0) (-1 disables) 
+    'adsorbates_freq' : -1, # Adsorbate redistribution frequency (required only if n_adsorbates > 0) (-1 disables) 
     
     # Defect behavior
     'defect_type': 1,      # 1 = trapping defects, 2 = blocking defects (required only if n_defects > 0 )
@@ -232,7 +232,7 @@ hexa_params = {
 
 for i in range(n_seeds):
 
-    hexa_params['seed'] = i,
+    hexa_params['seed'] = i
     print(f'current random_seed = {i}')
     
     KMC = hexa_kmc(**hexa_params)
@@ -257,6 +257,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
