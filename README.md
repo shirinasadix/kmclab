@@ -174,13 +174,15 @@ KMC.anim2panel()
 KMC.msdplot()
 ```
 
-### Hexagonal Lattice - Multi Run (Average Mean squared displacement vs time)
+## Hexagonal Lattice - Multi Run (Average Mean squared displacement vs time)
 
-Here is the step by step guide: 
+The example below shows how to run multiple independent KMC trajectories on a hexagonal lattice, average the MSD, and extract the diffusion coefficient.
+
+### Step 1: Import and setup output directories
 
 ```
-from hexa import hexa_kmc
-import numpy as np 
+from kmclab import hexa_kmc
+import numpy as np
 from pathlib import Path
 import shutil
 
@@ -192,26 +194,29 @@ if rs_p.exists():
 (rs_p / "time").mkdir(parents=True)
 (rs_p / "msd").mkdir(parents=True)
 
+ ```
+### Step 2: Define simulation parameters
 
-n_seeds = 5 # Number of trials
+```
+n_seeds = 25                     # Number of trials
 
 hexa_params = {
     # System composition
-    'n_atoms': 5,          # Number of mobile adatoms
-    'n_defects': 5,       # Number of surface defects
-    'n_adsorbates': 5,     # Number of surface adsorbates
+    'n_atoms': 5,                # Number of mobile adatoms
+    'n_defects': 5,              # Number of surface defects
+    'n_adsorbates': 5,           # Number of surface adsorbates
     
     # Lattice and simulation control
-    'lattice_size': 10,    # Linear size of the lattice
-    'T': 300,              # Temperature (K)
-    'seed': 1,             # Random number seed
+    'lattice_size': 10,          # Linear size of the lattice
+    'T': 300,                    # Temperature (K)
+    'seed': 1,                   # Random number seed
     
-    'len_vertical' : 0.38e-3,   # Vertical lattice hop distances (µm)
+    'len_vertical' : 0.38e-3,    # Vertical lattice hop distances (µm)
     'len_horizontal' : 0.51e-3,  # Horizontal lattice hop distances (µm)
-    'adsorbates_freq' : -1, # Adsorbate redistribution frequency (required only if n_adsorbates > 0) (-1 disables) 
+    'adsorbates_freq' : -1,      # Adsorbate redistribution frequency (required only if n_adsorbates > 0) (-1 disables) 
     
     # Defect behavior
-    'defect_type': 1,      # 1 = trapping defects, 2 = blocking defects (required only if n_defects > 0 )
+    'defect_type': 1,            # 1 = trapping defects, 2 = blocking defects (required only if n_defects > 0 )
 
     # Kinetic prefactor
     'k_0': 1,              
@@ -251,7 +256,9 @@ hexa_params = {
     'energy_barrier_adsorbate_southwest': 0.72
 }
 
-
+```
+### Step 3: Run multiple KMC trajectories
+```
 for i in range(n_seeds):
 
     hexa_params['seed'] = i
@@ -279,6 +286,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 ```
 XXX
 ```
+
 
 
 
