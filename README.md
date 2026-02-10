@@ -239,7 +239,7 @@ KMC.anim1panel()    # Keep `n_steps` for this function relatively small (≈1000
 ```
 ##### Demo 
 Ag monomer diffusion on stoichiometric anatase-TiO2(101)
-<img src="plots/ag-stoichiometric-anatase.gif" width="500">
+<img src="plots/ag-stoichiometric-anatase.gif" width="400">
 
 **Lattice Evolution + MSD vs Time Evolution Animation**
   
@@ -441,6 +441,7 @@ Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
 ```
 ## License
+
 
 
 
