@@ -9,6 +9,7 @@ Both classes share an identical workflow and analysis interface, allowing simula
 ## Core functionality
 
 Each lattice class supports the following diffusion-focused capabilities:
+<img src="plots/ag-stoichiometric-anatase.gif" width="500">
 
 **KMC time evolution**
 - Propagates adatom diffusion using direction-dependent hopping rates
@@ -441,6 +442,7 @@ Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
 ```
 ## License
+
 
 
 
