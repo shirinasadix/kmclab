@@ -442,11 +442,12 @@ KMC.msd_histogram(n_seeds = n_seeds)
 Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
 
-<img src="plots/average-msd-time.png" width="450">
+<img src="plots/average_msd_time.png" width="450">
 
 
 ```
 ## License
+
 
 
 
