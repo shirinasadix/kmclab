@@ -247,7 +247,9 @@ Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 KMC.anim2panel()   # Keep `n_steps` relatively small (≈1000), as larger values can significantly increase runtime.
 ```
 ##### Demo 
+
 Ag monomer diffusion on stoichiometric anatase-TiO2(101)
+
 ![demo](plots/ag-stoichiometric-anatase-2.gif)
 
 **Single-Trajectory MSD vs Time**
@@ -439,6 +441,7 @@ Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
 ```
 ## License
+
 
 
 
