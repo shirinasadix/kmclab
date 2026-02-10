@@ -237,7 +237,7 @@ KMC.run(n_steps = 100)  # Total KMC steps (must be > 10)        # hexagonal latt
 ```
 KMC.anim1panel()    # Keep `n_steps` for this function relatively small (≈1000), as larger values can significantly increase runtime.
 ```
-##### Demo 
+##### Demo (anim1panel)
 
 Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
@@ -248,20 +248,24 @@ Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 ```
 KMC.anim2panel()   # Keep `n_steps` relatively small (≈1000), as larger values can significantly increase runtime.
 ```
-##### Demo 
+##### Demo (anim2panel) 
 
 Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
 ![demo](plots/ag-stoichiometric-anatase-2.gif)
+<img src="plots/ag-stoichiometric-anatase-2.gif" width="450">
 
 **Single-Trajectory MSD vs Time**
 
 ```
 KMC.msdplot()
 ```
-##### Demo
+##### Demo (msdplot)
+
 Ag monomer diffusion on stoichiometric anatase-TiO2(101)
-![demo](plots/single-msd-time.png)
+
+<img src="plots/single-msd-time.png" width="450">
+
 
 ### Multi Run (Diffusion Coefficient Calculation)
 
@@ -443,6 +447,7 @@ Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
 ```
 ## License
+
 
 
 
