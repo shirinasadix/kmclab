@@ -255,7 +255,7 @@ KMC.anim2panel()   # Keep `n_steps` relatively small (≈1000), as larger values
 KMC.msdplot()
 ```
 ##### Demo 
-![demo](single-msd-time)
+![demo](single-msd-time.png)
 
 ### Multi Run (Diffusion Coefficient Calculation)
 
@@ -437,6 +437,7 @@ Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
 ```
 ## License
+
 
 
 
