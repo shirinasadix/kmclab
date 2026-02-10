@@ -9,7 +9,6 @@ Both classes share an identical workflow and analysis interface, allowing simula
 ## Core functionality
 
 Each lattice class supports the following diffusion-focused capabilities:
-<img src="plots/ag-stoichiometric-anatase.gif" width="500">
 
 **KMC time evolution**
 - Propagates adatom diffusion using direction-dependent hopping rates
@@ -239,10 +238,8 @@ KMC.run(n_steps = 100)  # Total KMC steps (must be > 10)        # hexagonal latt
 KMC.anim1panel()    # Keep `n_steps` for this function relatively small (≈1000), as larger values can significantly increase runtime.
 ```
 ##### Demo 
-
 Ag monomer diffusion on stoichiometric anatase-TiO2(101)
-![demo](plots/ag-stoichiometric-anatase.gif)
-
+<img src="plots/ag-stoichiometric-anatase.gif" width="500">
 
 **Lattice Evolution + MSD vs Time Evolution Animation**
   
@@ -442,6 +439,7 @@ Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
 ```
 ## License
+
 
 
 
