@@ -293,7 +293,7 @@ if rs_p.exists():
 The parameters set for hexagonal lattice:
 
 ```
-n_seeds = 25                     # Number of trials
+
 
 hexa_params = {
     # System composition
@@ -417,6 +417,7 @@ square_params = {
 ```
 #### Step 3: Run multiple KMC trajectories
 ```
+n_seeds = 25                     # Number of trials
 for i in range(n_seeds):
 
     hexa_params['seed'] = i                  # hexagonal lattice
@@ -447,6 +448,7 @@ Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
 ```
 ## License
+
 
 
 
