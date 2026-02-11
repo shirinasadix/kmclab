@@ -158,6 +158,7 @@ hexa_params = {
     'energy_barrier_adsorbate_southwest': 0.72
 }
 ```
+
 The parameters set for square lattice:
 
 ```
@@ -352,6 +353,7 @@ hexa_params = {
 }
 
 ```
+
 The parameters set for square lattice:
 
 ```
@@ -469,6 +471,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 
 
 
