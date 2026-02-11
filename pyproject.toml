@@ -9,7 +9,7 @@ description = "Hex and square lattice KMC classes."
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [{name = "Shirin Asadi"}]
-license = {text = "MIT"}
+license = { file = "LICENSE" }
 dependencies = [
     "numpy>=1.21",
     "matplotlib>=3.5",
@@ -21,6 +21,3 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[project]
-license = { file = "LICENSE" }
