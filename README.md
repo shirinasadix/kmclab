@@ -250,7 +250,7 @@ KMC.anim2panel()   # Keep `n_steps` relatively small (≈1000), as larger values
 ```
 ##### Demo (anim2panel) 
 
-Ag monomer diffusion on stoichiometric anatase-TiO2(101)
+Ag monomer diffusion on reduced anatase-TiO2(101)
 
 <img src="plots/ag15ov6hy0-hex.gif" width="650">
 
@@ -469,4 +469,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 
