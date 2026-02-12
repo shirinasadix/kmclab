@@ -444,7 +444,7 @@ KMC.msd_histogram(n_seeds = n_seeds)
 
 Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
-<img src="plots/average-msd-time.png" width="450">
+<img src="[plots/average-msd-time.png](https://github.com/shirinasadix/kmclab/blob/f92e782de5febac80f47b4bcf7ccaeb8a27ed30a/plots/average-msd-time.png)" width="450">
 
 ## License
 
@@ -460,6 +460,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+
 
 
 
