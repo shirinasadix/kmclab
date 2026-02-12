@@ -253,7 +253,7 @@ KMC.anim2panel()   # Keep `n_steps` relatively small (≈1000), as larger values
 
 Ag monomer diffusion on reduced anatase-TiO2(101)
 
-<img src="https://raw.githubusercontent.com/shirinasadix/kmclab/main/plots/Gif-S2.gif" width="450">
+<img src="https://raw.githubusercontent.com/shirinasadix/kmclab/main/plots/Gif-S2.gif" width="650">
 
 **Single-Trajectory MSD vs Time**
 
@@ -264,7 +264,7 @@ KMC.msdplot()
 
 Ag monomer diffusion on stoichiometric anatase-TiO2(101)
 
-<img src="https://raw.githubusercontent.com/shirinasadix/kmclab/main/plots/single-msd-time.png" width="850">
+<img src="https://raw.githubusercontent.com/shirinasadix/kmclab/main/plots/single-msd-time.png" width="450">
 
 
 ### Multi Run (Diffusion Coefficient Calculation)
@@ -461,6 +461,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+
 
 
 
