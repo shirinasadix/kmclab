@@ -1,4 +1,7 @@
 # kmclab
+
+<img src="https://raw.githubusercontent.com/shirinasadix/kmclab/main/plots/abstract.png" width="450">
+
 kmclab is a lightweight Python package providing lattice-based kinetic Monte Carlo (KMC) tools for simulating the surface diffusion of supported metal atoms and small clusters. The framework enables direct extraction of diffusion coefficients from first-principles–derived rate catalogs and includes built-in capabilities for trajectory visualization, mean-squared displacement analysis, and statistical averaging over multiple stochastic realizations.
 ## Lattice classes
 kmclab currently provides two primary classes that differ in lattice geometry and site connectivity:
@@ -461,6 +464,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+
 
 
 
