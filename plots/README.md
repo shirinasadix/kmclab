@@ -24,7 +24,7 @@ Right panel: cumulative mean-squared displacement (MSD) vs time.
 
 Vacancy sites locally perturb diffusion pathways, modifying mobility relative to the stoichiometric surface.
 
-## Gif S3
+## Gif S4
 
 Representative lattice-based KMC trajectory (1000 steps) for Ag₁ diffusion on hydroxylated anatase TiO₂(101) modeled using a hexagonal lattice at 300 K. The simulation is initialized with 15 Ag adatoms and 10 OH species randomly distributed on a 10 × 10 lattice, corresponding to surface coverages of 0.15 ML (Ag) and 0.10 ML (OH). To reflect the substantially higher mobility of surface hydroxyls relative to Ag, OH species are redistributed at each KMC step.
 The left panel displays the instantaneous lattice configuration, while the right panel shows the cumulative mean-squared displacement (MSD) of Ag as a function of simulation time.
